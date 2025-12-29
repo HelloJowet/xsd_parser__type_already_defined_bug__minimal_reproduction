@@ -3,11 +3,7 @@
 I ran into this error when trying to parse NeTEx XSD schemas:
 
 ```
-Error: InterpreterError(TypeAlreadyDefined(Ident {
-  ns: Some(NamespaceId(2)),
-  name: Generated("BaseMyGroup"),
-  type_: Type
-}))
+Error: InterpreterError(TypeAlreadyDefined(Ident { ns: Some(NamespaceId(2)), name: Generated("AssignmentVersionStructureAssignmentGroup"), type_: Type }))
 ```
 
 ## The Problem
