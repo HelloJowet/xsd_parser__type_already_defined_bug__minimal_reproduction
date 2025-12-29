@@ -10,9 +10,25 @@ use xsd_parser::{
 };
 
 fn main() -> Result<(), Error> {
+    // Use XSD_MODE env var to switch between schema modes:
+    //   - "minimal" (default): minimal reproduction schema
+    //   - "netex": real NeTEx XSD files
+    let xsd_mode = std::env::var("XSD_MODE").unwrap_or_else(|_| "minimal".to_string());
+    
+    let schema_file_path = match xsd_mode.as_str() {
+        "netex" => {
+            println!("cargo:warning=Using NeTEx XSD schema");
+            "./NeTEx/xsd/NeTEx_publication.xsd"
+        }
+        "minimal" | _ => {
+            println!("cargo:warning=Using minimal reproduction schema");
+            "./minimal_reproduction_schema.xsd"
+        }
+    };
+
     // This is almost the starting point defined in the main `[README.md]`.
     let mut config = Config::default();
-    config.parser.schemas = vec![Schema::File("./minimal_reproduction_schema.xsd".into())];
+    config.parser.schemas = vec![Schema::File(schema_file_path.into())];
     config.interpreter.flags = InterpreterFlags::all();
     config.optimizer.flags = OptimizerFlags::all();
     config.generator.flags = GeneratorFlags::all();

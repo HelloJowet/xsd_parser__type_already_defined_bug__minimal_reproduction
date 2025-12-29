@@ -26,10 +26,22 @@ The xsd_parser strips trailing underscores when generating nested type names for
 1. Point `build.rs` to this XSD:
 
    ```rust
-   config.parser.schemas = vec![Schema::File("./data/minimal_repro/assignment.xsd".into())];
+   config.parser.schemas = vec![Schema::File("./minimal_reproduction_schema.xsd".into())];
    ```
 
 2. Run `cargo build`
+
+## Schema Modes
+
+I've set this up so you can switch between the minimal reproduction and the real NeTEx schemas using an environment variable:
+
+```bash
+# Default - minimal reproduction schema
+cargo build
+
+# Real NeTEx XSD files (you'll need the NeTEx repo at ./NeTEx)
+XSD_MODE=netex cargo build
+```
 
 ## Why This Matters
 
