@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+num = "0.4.3"
+xsd-parser-types = { git = "https://github.com/Bergmann89/xsd-parser", features = ["quick-xml"] }
+
+[build-dependencies]
+xsd-parser = { git = "https://github.com/Bergmann89/xsd-parser" }
