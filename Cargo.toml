@@ -1,0 +1,6 @@
+[package]
+name = "xsd_parser__type_already_defined_bug__minimal_reproduction"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
