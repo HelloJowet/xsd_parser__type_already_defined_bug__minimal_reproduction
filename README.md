@@ -23,13 +23,7 @@ The xsd_parser strips trailing underscores when generating nested type names for
 
 ## How to Reproduce
 
-1. Point `build.rs` to this XSD:
-
-   ```rust
-   config.parser.schemas = vec![Schema::File("./minimal_reproduction_schema.xsd".into())];
-   ```
-
-2. Run `cargo build`
+Run `cargo build`
 
 ## Schema Modes
 
